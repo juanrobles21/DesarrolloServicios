@@ -1,0 +1,54 @@
+//*************************************
+Primero lo primero hagan el init
+npm init
+//************************************
+ahora te creas las carpetas
+src
+    configuracion
+    controladores
+    daos
+    middleware
+    modelos
+    repositorios
+    rutas
+index.ts
+
+//*************
+y ahora a instalar paquetes !!! ufff
+npm i cors
+npm i morgan
+npm i express
+npm i jsonwebtoken
+npm i pg-promise
+
+Si te equivocaste: npm uninstall "paquetes"
+//******
+types:hacer el trabajo de los paquetes
+npm i @types/cors --save-dev
+npm i @types/morgan --save-dev
+npm i @types/express --save-dev
+npm i @types/jsonwebtoken --save-dev
+npm i nodemon --save-dev
+
+//******
+ahora vamos a crear nuestros propios scripts
+"dev":"nodemon build/index.js",
+"build":"tsc -w"
+//******
+ahora le indicamos que vamos a utilizar tsc TypeScript
+tsc --init
+
+ojo si falla mano le toca en cmd es porque instalaste mal eso, pero todo bien
+
+//*******
+bueno en el tsconfig.json asegurarse de 
+"outDir": "./build",
+
+//*********
+Soluciona errores con npm i
+
+//*************
+programacion reactiva
+
+//*******
+Lanzar el servicio
