@@ -7,6 +7,7 @@ const cors_1 = __importDefault(require("cors"));
 const morgan_1 = __importDefault(require("morgan"));
 const express_1 = __importDefault(require("express"));
 const FacultadRutas_1 = __importDefault(require("../../rutas/FacultadRutas"));
+const DocentesRutas_1 = __importDefault(require("../../rutas/DocentesRutas"));
 class Servidor {
     constructor() {
         this.app = (0, express_1.default)();
@@ -21,7 +22,8 @@ class Servidor {
         this.app.use(express_1.default.urlencoded({ extended: true }));
     }
     activarRutas() {
-        this.app.use('/api/facultades', FacultadRutas_1.default);
+        this.app.use('/api/Facultades', FacultadRutas_1.default);
+        this.app.use('/api/Docentes', DocentesRutas_1.default);
     }
     iniciarSerividor() {
         this.app.listen(this.app.get('PORT'), () => {

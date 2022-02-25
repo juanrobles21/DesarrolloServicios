@@ -4,6 +4,12 @@ CREATE table facultades (
     constraint PK_FACULTADES primary key(cod_facultad)
 );
 ALTER table facultades owner to user_node;
+CREATE table tipoDocente(
+    cod_tipoDocente serial not null,
+    nombre_tipoDocente varchar (200) not null,
+    constraint PK_DOCENTES primary key(cod_tipoDocente)
+);
+ALTER table docentes owner to user_node;
 CREATE table docentes(
     cod_docentes serial not null,
     cod_facultad int4 not null,
@@ -19,3 +25,7 @@ ALTER table docentes
     ADD constraint FK_FACU_DOCE FOREIGN KEY (cod_facultad)
     REFERENCES facultades (cod_facultad)
     on delete restrict on update cascade;
+ALTER table docentes
+    ADD constraint FK_TIPO_DOCENTE FOREIGN key (tipo_docente)
+    REFERENCES tipo_docente (cod_tipoDocente)
+    on delete restrict on update

@@ -2,6 +2,8 @@ import cors from 'cors';
 import morgan from 'morgan';
 import express from 'express';
 import rutaFacultadApi from '../../rutas/FacultadRutas';
+import rutaDocentesApi from '../../rutas/DocentesRutas';
+
 
 class Servidor {
     public app: express.Application;
@@ -23,7 +25,8 @@ class Servidor {
 
     }
     public activarRutas(): void {
-        this.app.use('/api/facultades', rutaFacultadApi);
+        this.app.use('/api/Facultades', rutaFacultadApi);
+        this.app.use('/api/Docentes', rutaDocentesApi);
     }
     public iniciarSerividor(): void {
         this.app.listen(this.app.get('PORT'), () => {

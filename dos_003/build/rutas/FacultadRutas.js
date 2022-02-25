@@ -11,7 +11,7 @@ class FacultadRutas {
         this.configuracion();
     }
     configuracion() {
-        this.rutaFacultadApi.get('/lasquieroya', FacultadControlador_1.default.demelasFacultades);
+        this.rutaFacultadApi.get('/demelos', FacultadControlador_1.default.demelasFacultades);
     }
 }
 const facultadRutas = new FacultadRutas();

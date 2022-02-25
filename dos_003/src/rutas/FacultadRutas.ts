@@ -8,7 +8,7 @@ class FacultadRutas {
         this.configuracion();
     }
     public configuracion() {
-        this.rutaFacultadApi.get('/lasquieroya', facultadControlador.demelasFacultades);
+        this.rutaFacultadApi.get('/demelos', facultadControlador.demelasFacultades);
     }
 
 }
