@@ -9,6 +9,11 @@ class PartidosControlador extends PartidosDAO_1.default {
     demelosPartidos(req, res) {
         PartidosControlador.obtenerPartidos(partidos_1.SQL_PARTIDOS.TODAS, [], res);
     }
+    crearPartidos(req, res) {
+        const nombre = req.body.nombrePartido;
+        const parametro = [nombre];
+        PartidosControlador.crearPartidos(partidos_1.SQL_PARTIDOS.CONFIRMAR, partidos_1.SQL_PARTIDOS.CREAR, parametro, res);
+    }
 }
 const partidosControlador = new PartidosControlador();
 exports.default = partidosControlador;

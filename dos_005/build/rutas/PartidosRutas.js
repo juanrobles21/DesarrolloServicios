@@ -12,6 +12,7 @@ class PartidosRutas {
     }
     configuracion() {
         this.rutasPartidosApi.get('/partidos', PartidosControlador_1.default.demelosPartidos);
+        this.rutasPartidosApi.post('/partidos/crear', PartidosControlador_1.default.crearPartidos);
     }
 }
 const partidosRutas = new PartidosRutas();
