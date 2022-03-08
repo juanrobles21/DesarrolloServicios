@@ -41,7 +41,7 @@ class PartidosDAOS {
             }))
                 .then((respuesta) => {
                 //Aca va si todo esta bien
-                if (respuesta.id_partido != 0) {
+                if (respuesta.id_candidato != 0) {
                     res.status(200).json({ respuesta: 'Partido creado', nuevoCodigo: respuesta.id_partido });
                 }
                 else {

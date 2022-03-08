@@ -7,9 +7,10 @@ class CandidatosRutas {
         this.rutaCandidatosApi = Router();
         this.configuracion();
     }
-    public configuracion(){
-        this.rutaCandidatosApi.get('/candidatos',candidatosControlador.demelosCandidatos);
+    public configuracion() {
+        this.rutaCandidatosApi.get('/candidatos', candidatosControlador.demelosCandidatos);
+        this.rutaCandidatosApi.post('/candidatos/crear', candidatosControlador.crearCandidatos);
     }
 }
-const candidatosRutas=new CandidatosRutas();
+const candidatosRutas = new CandidatosRutas();
 export default candidatosRutas.rutaCandidatosApi;

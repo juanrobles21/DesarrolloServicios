@@ -12,6 +12,7 @@ class CandidatosRutas {
     }
     configuracion() {
         this.rutaCandidatosApi.get('/candidatos', CandidatosControlador_1.default.demelosCandidatos);
+        this.rutaCandidatosApi.post('/candidatos/crear', CandidatosControlador_1.default.crearCandidatos);
     }
 }
 const candidatosRutas = new CandidatosRutas();

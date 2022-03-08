@@ -9,6 +9,14 @@ class CandidatosControlador extends CandidatosDAO_1.default {
     demelosCandidatos(req, res) {
         CandidatosControlador.obtenerCandidatos(candidatos_1.SQL_CANDIDATOS.TODAS, [], res);
     }
+    crearCandidatos(req, res) {
+        const nombre = req.body.nombreCandidato;
+        const fecha = req.body.fechaCanditato;
+        const evalC = req.body.evalCandidato;
+        const partido = req.body.idPartido;
+        const parametro = [nombre, fecha, evalC, partido];
+        CandidatosControlador.crearCandidatos(candidatos_1.SQL_CANDIDATOS.CONFIRMAR, candidatos_1.SQL_CANDIDATOS.CREAR, parametro, res);
+    }
 }
 const candidatosControlador = new CandidatosControlador();
 exports.default = candidatosControlador;

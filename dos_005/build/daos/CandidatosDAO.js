@@ -26,5 +26,31 @@ class CandidatosDAO {
             });
         });
     }
+    static crearCandidatos(sqlConfirmar, sqlCrear, paramentros, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield conexionBD_1.default
+                .task((consulta) => __awaiter(this, void 0, void 0, function* () {
+                const dato = yield consulta.one(sqlConfirmar, paramentros);
+                if (dato.cantidad != 0) {
+                    return yield consulta.one(sqlCrear, paramentros);
+                }
+                else {
+                    return { id_candidato: 0 };
+                }
+            }))
+                .then((respuesta) => {
+                if (respuesta.id_candidato != 0) {
+                    res.status(200).json({ respuesta: 'Candidato Creado', nuevoCodigo: respuesta.nombre_partido });
+                }
+                else {
+                    res.status(402).json({ respuesta: 'Error, el ID del partido no esta creado', nuevoCodigo: respuesta.nombre_partido });
+                }
+            })
+                .catch((miError) => {
+                console.log('Error, consulta no se realizo con exito', miError);
+                res.status(400).json({ respuesta: 'Error en la consulta' });
+            });
+        });
+    }
 }
 exports.default = CandidatosDAO;
