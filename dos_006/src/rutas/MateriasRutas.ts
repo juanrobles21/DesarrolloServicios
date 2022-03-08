@@ -9,6 +9,7 @@ class MateriasRutas {
     }
     public configuracion() {
         this.rutasMateriasApi.get('/materias', materiasControlador.demelasMaterias);
+        this.rutasMateriasApi.get('/materias/buscar/:elCodigo', materiasControlador.buscarMaterias);
 
     }
 }

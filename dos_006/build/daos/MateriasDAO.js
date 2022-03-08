@@ -26,5 +26,18 @@ class MateriaDAO {
             });
         });
     }
+    static encontrarPorID(sqlConsulta, parametros, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield conexionBD_1.default.one(sqlConsulta, parametros)
+                .then((respuesta) => {
+                console.log(respuesta);
+                return res.status(200).json({ respuesta: 'Materia encontrado', nuevoCodigo: respuesta });
+            })
+                .catch((miError) => {
+                console.log(miError);
+                return res.status(400).json({ respuestas: 'Error buscando' });
+            });
+        });
+    }
 }
 exports.default = MateriaDAO;

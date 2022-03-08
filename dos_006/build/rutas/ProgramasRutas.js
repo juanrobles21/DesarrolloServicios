@@ -13,6 +13,8 @@ class ProgramasRutas {
     configuracion() {
         this.rutasProgramasApi.get('/programas', ProgramasControlador_1.default.demelosProgramas);
         this.rutasProgramasApi.post('/programas/crear', ProgramasControlador_1.default.crearProgramas);
+        this.rutasProgramasApi.get('/programas/buscar/:elCodigo', ProgramasControlador_1.default.buscarProgramas);
+        this.rutasProgramasApi.delete('/programas/elminar/:elCodigo', ProgramasControlador_1.default.EliminarProgramas);
     }
 }
 const programasRutas = new ProgramasRutas();

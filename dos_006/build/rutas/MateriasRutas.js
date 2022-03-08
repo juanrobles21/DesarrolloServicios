@@ -12,6 +12,7 @@ class MateriasRutas {
     }
     configuracion() {
         this.rutasMateriasApi.get('/materias', MateriasControlador_1.default.demelasMaterias);
+        this.rutasMateriasApi.get('/materias/buscar/:elCodigo', MateriasControlador_1.default.buscarMaterias);
     }
 }
 const materiasRutas = new MateriasRutas();

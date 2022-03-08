@@ -10,6 +10,8 @@ class ProgramasRutas {
     public configuracion() {
         this.rutasProgramasApi.get('/programas', programasControlador.demelosProgramas);
         this.rutasProgramasApi.post('/programas/crear', programasControlador.crearProgramas);
+        this.rutasProgramasApi.get('/programas/buscar/:elCodigo', programasControlador.buscarProgramas);
+        this.rutasProgramasApi.delete('/programas/elminar/:elCodigo', programasControlador.EliminarProgramas);
 
     }
 }
