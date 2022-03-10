@@ -14,15 +14,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const conexionBD_1 = __importDefault(require("../../configuracion/conexion/conexionBD"));
 class ProgrmasDaoActualizar {
-    static actualizarPrograma(sqlActualizar, paramentros, res) {
+    static actualizarPrograma(sqlConfirmar, sqlActualizar, paramentros, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield conexionBD_1.default.task((consulta) => __awaiter(this, void 0, void 0, function* () {
                 //Aca vamos hacer las consultas
-                const dato = yield consulta.result(sqlActualizar, paramentros);
+                const dato = yield consulta.one(sqlConfirmar, paramentros);
+                if (dato.cantidad == 0) {
+                    return yield consulta.one(sqlActualizar, paramentros);
+                }
+                else {
+                    return { cod_programa: 0 };
+                }
             }))
                 .then((respuesta) => {
-                console.log(respuesta);
-                res.status(200).json({ respuesta: 'Programa actualizado', });
+                if (respuesta.cod_programa != 0) {
+                    console.log(respuesta);
+                    res.status(200).json({ respuesta: 'Programa actualizado', });
+                }
+                else {
+                    console.log(respuesta);
+                    res.status(402).json({ respuesta: 'Error, no es posible actualizar el programa. El nombre del programa ya existe' });
+                }
             })
                 .catch((miError) => {
                 console.log(miError);

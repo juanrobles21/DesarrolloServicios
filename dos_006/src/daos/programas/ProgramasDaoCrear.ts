@@ -15,7 +15,7 @@ class ProgrmasDaoCrear {
             })
             .then((respuesta) => {
                 //Aca va si todo esta bien
-                if (respuesta.id_candidato != 0) {
+                if (respuesta.cod_programa != 0) {
                     res.status(200).json({ respuesta: 'Programa creado', nuevoCodigo: respuesta.cod_programa });
                 } else {
                     res.status(402).json({ respuesta: 'Error, Programa ya Esta creado', nuevoCodigo: respuesta.cod_programa });

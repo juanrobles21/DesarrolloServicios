@@ -10,7 +10,7 @@ class ProgramasControladorActualizar extends ProgramaDaoActualizar_1.default {
         const cod = req.body.cod;
         const nombre = req.body.nombrePrograma;
         const parametro = [nombre, cod];
-        ProgramasControladorActualizar.actualizarPrograma(programa_actualizar_sql_1.SQL_PROGRAMAS_ACTUALIZAR.ACTUALIZAR, parametro, res);
+        ProgramasControladorActualizar.actualizarPrograma(programa_actualizar_sql_1.SQL_PROGRAMAS_ACTUALIZAR.CONFIRMAR, programa_actualizar_sql_1.SQL_PROGRAMAS_ACTUALIZAR.ACTUALIZAR, parametro, res);
     }
 }
 const programasControladorActualizar = new ProgramasControladorActualizar();

@@ -1,15 +1,26 @@
-import { Response } from "express";
+import e, { Response } from "express";
 import pool from "../../configuracion/conexion/conexionBD";
 
 class ProgrmasDaoActualizar {
-    public static async actualizarPrograma(sqlActualizar: string, paramentros: any, res: Response): Promise<any> {
+    public static async actualizarPrograma(sqlConfirmar: string, sqlActualizar: string, paramentros: any, res: Response): Promise<any> {
         await pool.task(async consulta => {
             //Aca vamos hacer las consultas
-            const dato = await consulta.result(sqlActualizar, paramentros);
+            const dato = await consulta.one(sqlConfirmar, paramentros);
+            if (dato.cantidad == 0) {
+                return await consulta.one(sqlActualizar, paramentros);
+            } else {
+                return { cod_programa: 0 };
+            }
         })
             .then((respuesta) => {
-                console.log(respuesta);
-                res.status(200).json({ respuesta: 'Programa actualizado', });
+                if (respuesta.cod_programa != 0) {
+                    console.log(respuesta);
+                    res.status(200).json({ respuesta: 'Programa actualizado', });
+                } else {
+                    console.log(respuesta)
+                    res.status(402).json({ respuesta: 'Error, no es posible actualizar el programa. El nombre del programa ya existe' })
+
+                }
             })
             .catch((miError) => {
                 console.log(miError);
