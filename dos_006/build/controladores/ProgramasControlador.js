@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ProgramasDAO_1 = __importDefault(require("../daos/ProgramasDAO"));
-const programas_1 = require("../repositorios/programas");
+const ProgramasDAO_1 = __importDefault(require("../daos/programas/ProgramasDAO"));
+const programas_1 = require("../repositorios/programas/programas");
 class ProgramasControlador extends ProgramasDAO_1.default {
     demelosProgramas(req, res) {
         ProgramasControlador.obtenerProgramas(programas_1.SQL_PROGRAMAS.TODAS, [], res);

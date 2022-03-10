@@ -1,5 +1,5 @@
 import { Router } from "express";
-import semestresControlador from "../controladores/SemestresControlador";
+import semestresControlador from "../controladores/semestres/SemestresControlador";
 
 class SemestresRutas {
     public rutasSemestresApi: Router;

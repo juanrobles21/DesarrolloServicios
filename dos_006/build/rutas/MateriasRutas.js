@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const MateriasControlador_1 = __importDefault(require("../controladores/MateriasControlador"));
+const MateriasControlador_1 = __importDefault(require("../controladores/materias/MateriasControlador"));
 class MateriasRutas {
     constructor() {
         this.rutasMateriasApi = (0, express_1.Router)();
@@ -12,6 +12,7 @@ class MateriasRutas {
     }
     configuracion() {
         this.rutasMateriasApi.get('/materias', MateriasControlador_1.default.demelasMaterias);
+        this.rutasMateriasApi.post('/materias/crear', MateriasControlador_1.default.crearMaterias);
         this.rutasMateriasApi.get('/materias/buscar/:elCodigo', MateriasControlador_1.default.buscarMaterias);
     }
 }

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import pensumControlador from "../controladores/PensumControlador";
+import pensumControlador from "../controladores/pensum/PensumControlador";
 
 class PensumRutas {
     public rutaPensumApi: Router;

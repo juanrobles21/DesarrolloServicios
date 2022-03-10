@@ -1,5 +1,10 @@
 import { Router } from "express";
-import programasControlador from "../controladores/ProgramasControlador";
+import programasControladorActualizar from "../controladores/programas/ProgramasControladorActualizar";
+import programasControladorBuscar from "../controladores/programas/ProgramasControladorBuscar";
+import programasControladorMostrar from "../controladores/programas/ProgramasControladorMostrar";
+import programasControladorEliminar from "../controladores/programas/ProgramasControladorEliminar";
+import programasControladorCrear from "../controladores/programas/ProgramasControladorCrear";
+
 
 class ProgramasRutas {
     public rutasProgramasApi: Router;
@@ -8,10 +13,11 @@ class ProgramasRutas {
         this.configuracion();
     }
     public configuracion() {
-        this.rutasProgramasApi.get('/programas', programasControlador.demelosProgramas);
-        this.rutasProgramasApi.post('/programas/crear', programasControlador.crearProgramas);
-        this.rutasProgramasApi.get('/programas/buscar/:elCodigo', programasControlador.buscarProgramas);
-        this.rutasProgramasApi.delete('/programas/elminar/:elCodigo', programasControlador.EliminarProgramas);
+        this.rutasProgramasApi.get('/programas', programasControladorMostrar.mostrarProgramas);
+        this.rutasProgramasApi.post('/programas/crear', programasControladorCrear.crearProgramas);
+        this.rutasProgramasApi.put('/programas/actualizar', programasControladorActualizar.ActualizarProgramas);
+        this.rutasProgramasApi.get('/programas/buscar/:elCodigo', programasControladorBuscar.buscarProgramas);
+        this.rutasProgramasApi.delete('/programas/elminar/:elCodigo', programasControladorEliminar.EliminarProgramas);
 
     }
 }

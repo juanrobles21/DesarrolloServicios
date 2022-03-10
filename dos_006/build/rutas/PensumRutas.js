@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const PensumControlador_1 = __importDefault(require("../controladores/PensumControlador"));
+const PensumControlador_1 = __importDefault(require("../controladores/pensum/PensumControlador"));
 class PensumRutas {
     constructor() {
         this.rutaPensumApi = (0, express_1.Router)();

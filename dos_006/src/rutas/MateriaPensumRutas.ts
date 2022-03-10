@@ -1,5 +1,5 @@
 import { Router } from "express";
-import materiaPensumControlador from "../controladores/MateriaPensumControlador";
+import materiaPensumControlador from "../controladores/materiapensum/MateriaPensumControlador";
 
 class MateriaPensumRutas {
     public rutasMateriaPensumApi: Router;

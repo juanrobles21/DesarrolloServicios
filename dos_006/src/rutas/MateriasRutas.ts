@@ -1,5 +1,5 @@
 import { Router } from "express";
-import materiasControlador from "../controladores/MateriasControlador";
+import materiasControlador from "../controladores/materias/MateriasControlador";
 
 class MateriasRutas {
     public rutasMateriasApi: Router;
@@ -9,6 +9,7 @@ class MateriasRutas {
     }
     public configuracion() {
         this.rutasMateriasApi.get('/materias', materiasControlador.demelasMaterias);
+        this.rutasMateriasApi.post('/materias/crear', materiasControlador.crearMaterias);
         this.rutasMateriasApi.get('/materias/buscar/:elCodigo', materiasControlador.buscarMaterias);
 
     }
