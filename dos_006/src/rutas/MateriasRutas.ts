@@ -1,5 +1,9 @@
 import { Router } from "express";
-import materiasControlador from "../controladores/materias/MateriasControlador";
+import materiasControladorActualizar from "../controladores/materias/MateriasControladorActualizar";
+import materiasControladorBuscar from "../controladores/materias/MateriasControladorBuscar";
+import materiasControladorCrear from "../controladores/materias/MateriasControladorCrear";
+import materiasControladorEliminar from "../controladores/materias/MateriasControladorElminar";
+import materiasControladorMostrar from "../controladores/materias/MateriasControladorMostrar";
 
 class MateriasRutas {
     public rutasMateriasApi: Router;
@@ -8,9 +12,14 @@ class MateriasRutas {
         this.configuracion();
     }
     public configuracion() {
-        this.rutasMateriasApi.get('/materias', materiasControlador.demelasMaterias);
-        this.rutasMateriasApi.post('/materias/crear', materiasControlador.crearMaterias);
-        this.rutasMateriasApi.get('/materias/buscar/:elCodigo', materiasControlador.buscarMaterias);
+
+        this.rutasMateriasApi.get('/materias', materiasControladorMostrar.demelasMaterias);
+        this.rutasMateriasApi.post('/materias/crear', materiasControladorCrear.crearMaterias);
+        this.rutasMateriasApi.put('/materias/actualizar', materiasControladorActualizar.actualizarMaterias);
+        this.rutasMateriasApi.get('/materias/buscar/:elCodigo', materiasControladorBuscar.buscarMaterias);
+        this.rutasMateriasApi.delete('/materias/elminar/:elCodigo', materiasControladorEliminar.eliminarMaterias);
+
+
 
     }
 }

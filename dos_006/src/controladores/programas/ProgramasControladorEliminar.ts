@@ -6,7 +6,7 @@ class ProgramasControladorEliminar extends ProgramaDaoEliminar {
     public EliminarProgramas(req: Request, res: Response): void {
         const id = req.params.elCodigo;
         const paramentro = [id];
-        ProgramasControladorEliminar.eliminarPorID(SQL_PROGRAMAS_ELIMINAR.ELMINAR, paramentro, res);
+        ProgramasControladorEliminar.eliminarPorID(SQL_PROGRAMAS_ELIMINAR.ELIMINAR, paramentro, res);
 
     }
 }
