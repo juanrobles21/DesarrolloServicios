@@ -17,8 +17,8 @@ class ProgrmasDaoActualizar {
                     console.log(respuesta);
                     res.status(200).json({ respuesta: 'Programa actualizado', });
                 } else {
-                    console.log(respuesta)
-                    res.status(402).json({ respuesta: 'Error, no es posible actualizar el programa. El nombre del programa ya existe' })
+                    console.log(respuesta);
+                    res.status(402).json({ respuesta: 'Error, no es posible actualizar el programa. El nombre del programa ya existe' });
 
                 }
             })

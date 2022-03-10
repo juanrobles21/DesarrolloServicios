@@ -14,15 +14,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const conexionBD_1 = __importDefault(require("../../configuracion/conexion/conexionBD"));
 class MateriasDaoActualizar {
-    static actualizarMateria(sqlActualizar, paramentros, res) {
+    static actualizarMateria(sqlConfirmar, sqlActualizar, paramentros, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield conexionBD_1.default.task((consulta) => __awaiter(this, void 0, void 0, function* () {
                 //Aca vamos hacer las consultas
-                const dato = yield consulta.result(sqlActualizar, paramentros);
+                const dato = yield consulta.one(sqlConfirmar, paramentros);
+                if (dato.cantidad == 0) {
+                    return yield consulta.one(sqlActualizar, paramentros);
+                }
+                else {
+                    return { cod_materia: 0 };
+                }
             }))
                 .then((respuesta) => {
-                console.log(respuesta);
-                res.status(200).json({ respuesta: 'Materia actualizada', });
+                if (respuesta.cod_materia != 0) {
+                    console.log(respuesta);
+                    res.status(200).json({ respuesta: 'Materia actualizada', });
+                }
+                else {
+                    console.log(respuesta);
+                    res.status(402).json({ respuesta: 'Error, no es posible actualizar la materia. El nombre de la materia ya existe' });
+                }
             })
                 .catch((miError) => {
                 console.log(miError);

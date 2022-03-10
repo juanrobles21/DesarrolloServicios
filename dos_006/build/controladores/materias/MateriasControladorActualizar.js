@@ -11,7 +11,7 @@ class MateriasControladorActualizar extends MateriasDaoActualizar_1.default {
         const nombre_materia = req.body.nombreMateria;
         const referencia_materia = req.body.referenciaMateria;
         const parametro = [nombre_materia, referencia_materia, cod];
-        MateriasControladorActualizar.actualizarMateria(materias_actualizar_sql_1.SQL_MATERIAS_ACTUALIZAR.ACTUALIZAR, parametro, res);
+        MateriasControladorActualizar.actualizarMateria(materias_actualizar_sql_1.SQL_MATERIAS_ACTUALIZAR.CONFIRMAR, materias_actualizar_sql_1.SQL_MATERIAS_ACTUALIZAR.ACTUALIZAR, parametro, res);
     }
 }
 const materiasControladorActualizar = new MateriasControladorActualizar();
