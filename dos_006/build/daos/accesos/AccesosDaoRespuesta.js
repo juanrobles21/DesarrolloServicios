@@ -12,22 +12,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const AccesosDaoRespuesta_1 = __importDefault(require("./AccesosDaoRespuesta"));
-const conexionBD_1 = __importDefault(require("../../configuracion/conexion/conexionBD"));
-class AccesosDaoValidar {
-    static validarAcceso(sqlConsulta, parametros, res) {
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+class AccesosDaoRespuesta {
+    static procesar(registro, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield conexionBD_1.default.oneOrNone(sqlConsulta, parametros)
-                .then((dato) => {
-                return AccesosDaoRespuesta_1.default.procesar(dato, res);
-                //console.log(respuesta);
-                //return res.status(200).json({ respuesta: 'Acceso valido', codigo: respuesta });
-            })
-                .catch((miError) => {
-                console.log(miError);
-                return res.status(400).json({ respuestas: 'Error datos no encontrados' });
-            });
+            if (registro != null) {
+                //vamos a crear el toquensito
+                const miTockencito = jsonwebtoken_1.default.sign({ codigito: registro.codAcceso, nombre: registro.nombreRol, dosDev: 'eso somos' }, 'uyyyyLaclave', { expiresIn: '8h' });
+                return res.status(200).json({ token: miTockencito });
+            }
+            else {
+                return res.status(401).json({ mensaje: "Usuario incorrecto" });
+            }
         });
     }
 }
-exports.default = AccesosDaoValidar;
+exports.default = AccesosDaoRespuesta;

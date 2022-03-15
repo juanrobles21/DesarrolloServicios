@@ -1,7 +1,15 @@
+CREATE TABLE roles(
+    cod_rol serial not null,
+    nombre_rol VARCHAR(200) not null,
+    constraint PK_ROL primary key(cod_rol)
+);
+ALTER TABLE roles owner to user_node;
+CREATE UNIQUE INDEX indice_nombrerol ON roles(nombre_rol);
 CREATE TABLE accesos(
     cod_acceso serial not null,
     correo_acceso varchar(200) not null UNIQUE,
     clave_acceso varchar(200) not null,
+    cod_rol int4 not null,
     constraint PK_ACCESOS primary key(cod_acceso)
 );
 ALTER TABLE accesos owner to user_node;
@@ -67,4 +75,9 @@ ALTER TABLE materiapensum
 ALTER TABLE pensums
     add constraint FK_PENSUMS_REF_PRORGRAMAS foreign key (cod_programa)
     references programas (cod_programa)
+    on delete restrict on update cascade;
+
+ALTER TABLE accesos
+    add constraint FK_ACCESO_REF_ROLES foreign key (cod_rol)
+    references roles (cod_rol)
     on delete restrict on update cascade;
