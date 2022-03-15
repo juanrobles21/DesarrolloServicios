@@ -1,3 +1,11 @@
+CREATE TABLE accesos(
+    cod_acceso serial not null,
+    correo_acceso varchar(200) not null UNIQUE,
+    clave_acceso varchar(200) not null,
+    constraint PK_ACCESOS primary key(cod_acceso)
+);
+ALTER TABLE accesos owner to user_node;
+
 CREATE TABLE materiapensum(
     cod_pensum int4 not null,
     cod_materia int4 not null,

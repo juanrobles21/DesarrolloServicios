@@ -11,6 +11,7 @@ const MateriasRutas_1 = __importDefault(require("../../rutas/MateriasRutas"));
 const SemestresRutas_1 = __importDefault(require("../../rutas/SemestresRutas"));
 const PensumRutas_1 = __importDefault(require("../../rutas/PensumRutas"));
 const MateriaPensumRutas_1 = __importDefault(require("../../rutas/MateriaPensumRutas"));
+const AcceosRutas_1 = __importDefault(require("../../rutas/AcceosRutas"));
 class Servidor {
     constructor() {
         this.app = (0, express_1.default)();
@@ -30,6 +31,7 @@ class Servidor {
         this.app.use('/api/Universidad', SemestresRutas_1.default);
         this.app.use('/api/Universidad', PensumRutas_1.default);
         this.app.use('/api/Universidad', MateriaPensumRutas_1.default);
+        this.app.use('/api/Universidad', AcceosRutas_1.default);
     }
     iniciarSerividor() {
         this.app.listen(this.app.get('PORT'), () => {

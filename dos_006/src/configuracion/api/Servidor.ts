@@ -6,6 +6,7 @@ import rutasMateriasApi from '../../rutas/MateriasRutas';
 import rutasSemestresApi from '../../rutas/SemestresRutas';
 import rutasPensumApi from '../../rutas/PensumRutas';
 import rutasMateriaPensumApi from '../../rutas/MateriaPensumRutas';
+import rutasAccesoApi from '../../rutas/AcceosRutas';
 
 class Servidor {
     public app: express.Application;
@@ -32,6 +33,8 @@ class Servidor {
         this.app.use('/api/Universidad', rutasSemestresApi);
         this.app.use('/api/Universidad', rutasPensumApi);
         this.app.use('/api/Universidad', rutasMateriaPensumApi);
+        this.app.use('/api/Universidad', rutasAccesoApi);
+
     }
     public iniciarSerividor(): void {
         this.app.listen(this.app.get('PORT'), () => {
