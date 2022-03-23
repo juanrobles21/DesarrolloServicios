@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const cors_1 = __importDefault(require("cors"));
 const morgan_1 = __importDefault(require("morgan"));
 const express_1 = __importDefault(require("express"));
+const Validacion_1 = __importDefault(require("../../middleware/Validacion"));
 const ProgramasRutas_1 = __importDefault(require("../../rutas/ProgramasRutas"));
 const MateriasRutas_1 = __importDefault(require("../../rutas/MateriasRutas"));
 const SemestresRutas_1 = __importDefault(require("../../rutas/SemestresRutas"));
@@ -28,6 +29,7 @@ class Servidor {
     activarRutas() {
         this.app.use('/api/Universidad', ProgramasRutas_1.default);
         this.app.use('/api/Universidad', MateriasRutas_1.default);
+        this.app.use('/api/privada', Validacion_1.default.delToken, MateriasRutas_1.default);
         this.app.use('/api/Universidad', SemestresRutas_1.default);
         this.app.use('/api/Universidad', PensumRutas_1.default);
         this.app.use('/api/Universidad', MateriaPensumRutas_1.default);

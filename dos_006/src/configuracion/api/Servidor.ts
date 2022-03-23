@@ -1,6 +1,7 @@
 import cors from 'cors';
 import morgan from 'morgan';
 import express from 'express';
+import validacion from '../../middleware/Validacion';
 import rutasProgramasApi from '../../rutas/ProgramasRutas';
 import rutasMateriasApi from '../../rutas/MateriasRutas';
 import rutasSemestresApi from '../../rutas/SemestresRutas';
@@ -30,6 +31,8 @@ class Servidor {
     public activarRutas(): void {
         this.app.use('/api/Universidad', rutasProgramasApi);
         this.app.use('/api/Universidad', rutasMateriasApi);
+
+        this.app.use('/api/privada', validacion.delToken, rutasMateriasApi);
         this.app.use('/api/Universidad', rutasSemestresApi);
         this.app.use('/api/Universidad', rutasPensumApi);
         this.app.use('/api/Universidad', rutasMateriaPensumApi);
