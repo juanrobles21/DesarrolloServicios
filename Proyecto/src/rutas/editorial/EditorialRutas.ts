@@ -3,6 +3,7 @@ import editorialControladorActualizar from "../../controladores/editorial/Editor
 import editorialControladorCrear from "../../controladores/editorial/EditorialControladorCrear";
 import editorialControladorMostrar from "../../controladores/editorial/EditorialControladorMostrar";
 import editorialControladorEliminar from "../../controladores/editorial/EditorialControladorEliminar";
+import editorialControladorCargar from "../../controladores/editorial/EditorialControladorCargar";
 
 class EditorialRutas {
     public rutasEditorialApi: Router;
@@ -16,7 +17,7 @@ class EditorialRutas {
         this.rutasEditorialApi.post('/crear', editorialControladorCrear.crearEditorial);
         this.rutasEditorialApi.put('/actualizar', editorialControladorActualizar.actualizarEditorial);
         this.rutasEditorialApi.delete('/elminar/:elCodigo', editorialControladorEliminar.eliminarEditorial);
-
+        this.rutasEditorialApi.get('/buscar/:elCodigo', editorialControladorCargar.buscarEditorialIdLibro);
 
 
     }

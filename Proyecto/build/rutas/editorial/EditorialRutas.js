@@ -8,6 +8,7 @@ const EditorialControladorActualizar_1 = __importDefault(require("../../controla
 const EditorialControladorCrear_1 = __importDefault(require("../../controladores/editorial/EditorialControladorCrear"));
 const EditorialControladorMostrar_1 = __importDefault(require("../../controladores/editorial/EditorialControladorMostrar"));
 const EditorialControladorEliminar_1 = __importDefault(require("../../controladores/editorial/EditorialControladorEliminar"));
+const EditorialControladorCargar_1 = __importDefault(require("../../controladores/editorial/EditorialControladorCargar"));
 class EditorialRutas {
     constructor() {
         this.rutasEditorialApi = (0, express_1.Router)();
@@ -18,6 +19,7 @@ class EditorialRutas {
         this.rutasEditorialApi.post('/crear', EditorialControladorCrear_1.default.crearEditorial);
         this.rutasEditorialApi.put('/actualizar', EditorialControladorActualizar_1.default.actualizarEditorial);
         this.rutasEditorialApi.delete('/elminar/:elCodigo', EditorialControladorEliminar_1.default.eliminarEditorial);
+        this.rutasEditorialApi.get('/buscar/:elCodigo', EditorialControladorCargar_1.default.buscarEditorialIdLibro);
     }
 }
 const editorialRutas = new EditorialRutas();

@@ -8,6 +8,7 @@ const ClienteControladorActualizar_1 = __importDefault(require("../../controlado
 const ClienteControladorCrear_1 = __importDefault(require("../../controladores/cliente/ClienteControladorCrear"));
 const ClienteControladorMostrar_1 = __importDefault(require("../../controladores/cliente/ClienteControladorMostrar"));
 const ClienteControladorEliminar_1 = __importDefault(require("../../controladores/cliente/ClienteControladorEliminar"));
+const ClienteControladorCargar_1 = __importDefault(require("../../controladores/cliente/ClienteControladorCargar"));
 class ClienteRutas {
     constructor() {
         this.rutasClienteApi = (0, express_1.Router)();
@@ -18,6 +19,7 @@ class ClienteRutas {
         this.rutasClienteApi.post('/crear', ClienteControladorCrear_1.default.crearCliente);
         this.rutasClienteApi.put('/actualizar', ClienteControladorActualizar_1.default.actualizarCliente);
         this.rutasClienteApi.delete('/elminar/:elCodigo', ClienteControladorEliminar_1.default.eliminarCliente);
+        this.rutasClienteApi.get('/buscar/:elCodigo', ClienteControladorCargar_1.default.buscarClienteIdPrestamo);
     }
 }
 const clienteRutas = new ClienteRutas();

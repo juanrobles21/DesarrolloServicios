@@ -3,6 +3,7 @@ import clienteControladorActualizar from "../../controladores/cliente/ClienteCon
 import clienteControladorCrear from "../../controladores/cliente/ClienteControladorCrear";
 import clienteControladorMostrar from "../../controladores/cliente/ClienteControladorMostrar";
 import clienteControladorEliminar from "../../controladores/cliente/ClienteControladorEliminar";
+import clienteControladorCargar from "../../controladores/cliente/ClienteControladorCargar";
 
 class ClienteRutas {
     public rutasClienteApi: Router;
@@ -16,7 +17,7 @@ class ClienteRutas {
         this.rutasClienteApi.post('/crear', clienteControladorCrear.crearCliente);
         this.rutasClienteApi.put('/actualizar', clienteControladorActualizar.actualizarCliente);
         this.rutasClienteApi.delete('/elminar/:elCodigo', clienteControladorEliminar.eliminarCliente);
-
+        this.rutasClienteApi.get('/buscar/:elCodigo', clienteControladorCargar.buscarClienteIdPrestamo);
 
 
     }
